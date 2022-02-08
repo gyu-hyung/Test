@@ -1,0 +1,29 @@
+package com.hanul.iot;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import customer.CustomerServiceImpl;
+
+//고객관리 페이지처리 @Controller 생성
+@Controller
+public class CustomerController {
+
+	@Autowired CustomerServiceImpl service;
+	
+	
+	// 고객 관리 목록 요청
+	@RequestMapping("/list.cu")
+	public String list(HttpSession session) {
+		session.setAttribute("category", "cu");
+		
+		
+		
+		service.customer_list();
+		return "customer/list";
+	}
+	
+}

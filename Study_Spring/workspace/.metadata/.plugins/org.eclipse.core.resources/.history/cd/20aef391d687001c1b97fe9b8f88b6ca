@@ -1,0 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head >
+	<div>
+		<ul>
+			<li><a href=''></a></li>
+			<li><a href='list.cu'>고객 관리</a></li>
+			<li><a href='list.no'>공지 사항</a></li>
+			<li><a href='list.bo'>방명록</a></li>
+			<li><a href='list.da'>공공 데이터</a></li>
+					
+		</ul>
+	
+	
+	</div>
+</head>

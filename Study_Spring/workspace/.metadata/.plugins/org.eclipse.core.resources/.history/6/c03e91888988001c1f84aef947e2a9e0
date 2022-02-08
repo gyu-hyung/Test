@@ -1,0 +1,35 @@
+package com.hanul.middle;
+
+import java.io.PrintWriter;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import customer.CustomerServiceImpl;
+import customer.CustomerVO;
+
+@Controller
+public class CostomerController {
+
+	
+	@Autowired CustomerServiceImpl service;
+	
+	@ResponseBody // 응답 자체를 Controller에서 하기위한 처리(어노테이션) ajax(페이지요청x,데이터요청0)
+	@RequestMapping("/list.cu")
+	public String list(HttpSession session) {
+		session.setAttribute("category", "cu");
+		List<CustomerVO> list = service.customer_list();
+		list.get(0);
+		System.out.println(list.get(0).getName());
+		PrintWriter writer;
+		return "customer/list";
+	}
+	
+	
+}

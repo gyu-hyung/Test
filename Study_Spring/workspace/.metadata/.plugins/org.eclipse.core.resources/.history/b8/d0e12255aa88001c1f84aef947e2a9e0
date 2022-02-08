@@ -1,0 +1,63 @@
+package com.hanul.iot;
+
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import customer.CustomerServiceImpl;
+import customer.CustomerVO;
+
+//고객관리 페이지처리 @Controller 생성
+@Controller
+public class CustomerController {
+
+	@Autowired CustomerServiceImpl service;
+	
+	//신구 고객 등록 화면 요청
+	@RequestMapping("/new.cu")
+	public String new_customer() {
+		
+		return "customer/new";
+	}
+	
+	
+	
+	// 고객 개인 정보 상제 화면 요청
+	@RequestMapping("/detail.cu")
+	public String detail( int id  , Model model) {
+		
+		//선택한 고객 정보를 DB에서 조회
+		model.addAttribute("vo", service.customer_detail(id) );
+		return  "customer/detail";
+	}
+	
+	
+	
+	// 고객 관리 목록 요청
+	@RequestMapping("/list.cu")
+	public String list(HttpSession session, Model model) {
+		session.setAttribute("category", "cu");
+		
+		List<CustomerVO> list = service.customer_list();
+		model.addAttribute("list", list);
+		return "customer/list";
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+

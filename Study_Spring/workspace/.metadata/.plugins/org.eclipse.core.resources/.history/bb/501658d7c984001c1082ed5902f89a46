@@ -1,0 +1,21 @@
+package com.hanul.hello;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+//컨트롤러 객체 생성 @Controller
+@Controller
+public class TestController {
+	
+	//어떤 요청에 대해 연결할 것인지 지정@RequestMapping()
+	@RequestMapping("/first")
+	public String view(Model model) {
+		
+		model.addAttribute("today", new SimpleDateFormat("yyyy년 MM월 dd일").format(new Date()));		
+		return "index";
+	}
+}

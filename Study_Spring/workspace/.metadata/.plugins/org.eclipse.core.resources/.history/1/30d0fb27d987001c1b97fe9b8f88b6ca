@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<style>
+header ul, header ul li {
+	margin : 0;
+	padding: 0;
+	display: inline;
+}
+
+
+
+</style>
+
+<header>
+	<div>
+		<ul>
+			<li><a href=''><img src='imgs/hanul.logo.png'/></a></li>
+			<li><a href='list.cu'>고객 관리</a></li>
+			<li><a href='list.no'>공지 사항</a></li>
+			<li><a href='list.bo'>방명록</a></li>
+			<li><a href='list.da'>공공 데이터</a></li>
+					
+		</ul>
+	
+	
+	</div>
+</header>

@@ -1,0 +1,18 @@
+package com.hanul.iot;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class EmployeeController {
+	
+	//사원목록 화면요청
+	@RequestMapping("/list.hr")
+	public String list(HttpSession session) {
+		session.setAttribute("category", "hr");
+		
+		return "emloyee/list";
+	}
+}

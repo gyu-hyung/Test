@@ -1,0 +1,21 @@
+package employee;
+
+import java.util.List;
+
+public class EmployeeServiceImpl implements EmployeeService {
+
+	@Override
+	public List<EmployeeVO> employee_list() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public EmployeeVO employee_detail(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+}

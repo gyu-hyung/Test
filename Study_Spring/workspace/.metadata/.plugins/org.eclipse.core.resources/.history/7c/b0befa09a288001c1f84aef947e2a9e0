@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>detail.jsp</title>
+</head>
+<body>
+<jsp:include page="/WEB-INF/views/include/header.jps"></jsp:include>
+<div id="content">
+<h3>[ ${vo.name} ]고객 정보</h3>
+<table>
+	<tr>
+		<th class="w-px160">성별</th>
+		<td>${vo.gender}</td>
+	</tr>
+	<tr>
+		<th>이메일</th>
+		<td>${vo.email}</td>
+	</tr>
+	<tr>
+		<th>전화번호</th>
+		<td>${vo.phone}</td>
+	</tr>
+</table>
+
+</div>
+<jsp:include page="/WEB-INF/views/include/footer.jps"></jsp:include>
+</body>
+</html>

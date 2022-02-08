@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>join.jsp</title>
+</head>
+<body>
+<form method="post"><!-- get방식 url에 값이 노출 post는 전달될때 감춰져서! -->
+<h3>회원가입</h3>
+<table border="1">
+	<tr>
+		<th>성명</th>
+		<td><input type="text" name="name"/></td>
+	</tr>
+	<tr>
+		<th>성별</th>
+		<td>
+			<label><input type="radio" name="gender" value="남" />남</td></label>
+			<label><input type="radio" name="gender" value="여" checked="checked"/>여</label>
+		</td>
+	</tr>
+	 <tr>
+	 	<th>이메일</th>
+	 	<td><input type="text" name="email" /></td>
+	 </tr>
+	 
+</table>
+<input type="submit" value="HttpServletRequest" onclick="action='joinRequest' " />
+</form>
+<script type="text/javascript">
+function go_submit (){
+	
+}
+
+
+</script>
+</body>
+</html>
