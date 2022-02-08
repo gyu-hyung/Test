@@ -1,0 +1,16 @@
+package dto;
+
+import java.io.Serializable;
+
+public class AndImgDTO implements Serializable{
+private int img_id;
+private String img_url;
+public AndImgDTO(int img_id, String img_url) {
+	super();
+	this.img_id = img_id;
+	this.img_url = img_url;
+}
+
+
+
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/list_imgv"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:src="@drawable/gear"
+        android:layout_weight="2"/>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_weight="8"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/list_tv3"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="오후 13:00"
+            android:textSize="10dp"
+            android:textColor="#736A6A"
+            android:gravity="right"
+            android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/list_tv1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="닉네임이 들어감"
+                android:textSize="20dp"
+                android:textColor="#000000"
+                android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/list_tv2"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="닉네임이 들어감"
+            android:textSize="10dp"
+            android:textColor="#736A6A"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+</LinearLayout>

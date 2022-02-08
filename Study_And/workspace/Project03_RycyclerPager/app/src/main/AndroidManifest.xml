@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.project03_rycyclerpager">
+    <!-- 사용 권한을 주는 부분. API 26~28이상은 Quries라는 권한 요청도 필요함. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Project03_RycyclerPager"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".viewglide.GlidePagerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".viewglide.GlideActivity"
+            android:exported="false" />
+        <activity
+            android:name=".viewpagerdb.PagerDbActivity"
+            android:exported="false" />
+        <activity
+            android:name=".viewpager.PagerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".recycler.RecyclerActivity"
+            android:exported="false" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

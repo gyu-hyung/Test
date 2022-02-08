@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Main3Activity">
+
+    <Button
+        android:id="@+id/sub_box"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="50dp"
+        android:text="상자1"/>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/sub_box2"
+        android:layout_centerInParent="true"
+        android:backgroundTint="#46C9DA"
+        android:text="상자2"/>
+
+    <Button
+        android:id="@+id/sub_box3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:backgroundTint="#8BC34A"
+        android:text="상자3"/>
+
+    <Button
+        android:id="@+id/sub_box4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignBaseline="@id/sub_box2"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:backgroundTint="#FF9800"
+        android:text="상자4"/>
+
+    <Button
+        android:id="@+id/sub_box5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/sub_box4"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="-15dp"
+        android:backgroundTint="#3F51B5"
+        android:text="상자5"/>
+
+    <Button
+        android:id="@+id/sub_box6"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:backgroundTint="#000000"
+        android:text="상자6"/>
+
+
+</RelativeLayout>

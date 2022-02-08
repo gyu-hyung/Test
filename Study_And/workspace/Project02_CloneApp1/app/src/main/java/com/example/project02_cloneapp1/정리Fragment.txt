@@ -1,0 +1,16 @@
+Fragment
+=> 프래그먼트는 액티비티나 , 다른 Context를 가진 화면에 붙는 화면.
+별도로 java코드와 수명주기(Life Cycle)을 가지고있는 객체.
+getSupportFragmnetManager <= Context를 가진(Activity)에서 사용가능한 기능
+        getContext<-Activity의 일부기능을 받아옴(Context)
+        getActivity <- Activity의 모든 기능을 받아옴(Context)
+ ex Code )  getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container , fragment).commit();
+
+ Fragment의 위젯 초기화
+ onCreateView() 메소드
+  ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_list_view, container, false);
+   R.layout에 미리 만들어놓은 xml을 연결한다.
+   연결 시킨 xml을 ViewGroup(위젯을 묶어놓은)에 담고 ViewGroup을 이용하여
+   위젯들을 Find한다.
+

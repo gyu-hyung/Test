@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <!-- item 태그를 이용해서 추가
+        showAsAction 보이는 설정:
+        always => 항상보여주게 처리
+        never => 안보이게 처리
+        ifRoom => 공간이 있을때 표시
+    -->
+    <item android:id="@+id/tab1"
+        android:icon="@drawable/user"
+        android:title="1"
+        android:enabled="true"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/tab2"
+        android:icon="@drawable/talk"
+        android:title="2"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/tab3"
+        android:icon="@drawable/eye"
+        android:title="3"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/tab4"
+        android:icon="@drawable/shopping"
+        android:title="4"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/tab5"
+        android:icon="@drawable/gear"
+        android:title="5"
+        app:showAsAction="ifRoom"/>
+
+</menu>

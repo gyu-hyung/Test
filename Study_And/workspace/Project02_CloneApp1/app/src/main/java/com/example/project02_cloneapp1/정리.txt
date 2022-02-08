@@ -1,0 +1,19 @@
+0.Android
+-Android는 Os와 기본적으로 SDK(Software Development kit)을 사용하여 개발하기때문에
+구현 되어있는 기능을 어느곳에서 사용할지가 매우 중요함.
+-Android는 새로운 운영체제가 빠르게 출시되므로 낮은버전에서 공부했던내용이
+높은 버전에서는 전혀 새로운 내용으로 바뀔 가능성이 많음.
+
+따라서 기능에 대해서 깊게 공부하는게 아니라 어느곳에 적용을 할것인지 공부하는게 중요!
+ex)  Button객체.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ?
+                }
+            });
+버튼 객체를 클릭했을때 어떤 처리가 필요하다면 setOnClickListener와
+Interface를 new로 넘겨주고 실제 구현하는 처리를 어느곳에 하는지가 중요하지
+setOnClickListener의 구조를 파고들면 공부에 끝이없음.
+
+Find를 반드시해야 화면 단의 위젯과 java코드의 객체가 연결이됨※
+res에는 반드시 소문자로 시작 소문자 + 숫자 특수문자_

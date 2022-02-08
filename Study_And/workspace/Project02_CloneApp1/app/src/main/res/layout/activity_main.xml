@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:background="#123456"
+        android:id="@+id/container"/>
+    <!--Fragment 붙이기 위한 FrameLayout id 규칙 -->
+    <!-- Icon색 , Text색 , ※ xml로 Menu를 만들어 놓기 ※ -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:itemIconTint="@drawable/itemcolor"
+        app:itemTextColor="@drawable/itemcolor"
+        app:menu="@menu/bottom_nav"
+        android:id="@+id/bottom_nav"
+        />
+
+
+
+
+</LinearLayout>

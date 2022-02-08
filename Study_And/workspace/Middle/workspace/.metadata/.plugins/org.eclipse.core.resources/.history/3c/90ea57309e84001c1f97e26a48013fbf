@@ -1,0 +1,50 @@
+package Controller;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+@WebServlet("*.amg")
+public class imgController extends HttpServlet {
+	
+	String resuouce = "mybatis/config.xml";
+	InputStream inputStream;
+	SqlSessionFactory sqlSessionFactory;
+	SqlSession session;
+	
+	
+	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		res.setCharacterEncoding("utf-8");
+		res.setContentType("text/html");
+		req.setCharacterEncoding("utf-8");
+		
+		
+		
+	}
+	
+	
+	public void initMybatis() {
+		try {
+			inputStream =  Resources.getResourceAsStream(resource);
+			sqlsessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+			session = sqlsessionFactory.openSession();
+			int testInt = session.selectList("and.mapper.list");
+			System.out.println(testInt);
+			session.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	
+
+}
