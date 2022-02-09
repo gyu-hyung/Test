@@ -55,7 +55,7 @@ public class CustomerController {
 		return "redirect:list.cu";
 	}
 	
-	//신구 고객 등록 화면 요청
+	//신규 고객 등록 화면 요청
 	@RequestMapping("/new.cu")
 	public String new_customer() {
 		return "customer/new";

@@ -71,8 +71,17 @@ input[type=ridio] {
 	vertical-align: middle;
 }
 
+select:focus , input:focus, textarea:focus {outline: none;}
+select {height :34px; border:1px solid #b0b0b0; padding: 0 5px; cursor: pointer;}
 
+ul { list-style: none; padding: 0; }
 
+#list-top{ padding: 20px 10%;  }
+#list-top div { height: 36px; }
+#list-top ul { margin: 0; display: flex; }
+#list-top ul li * { vertical-align: middle; }
+#list-top ul li:not(:fitst-child) {margin-left: 3px; }
+#list-top ul { float: right; }
 
 
 /* width값을 클래스로 등록하여 관리 */

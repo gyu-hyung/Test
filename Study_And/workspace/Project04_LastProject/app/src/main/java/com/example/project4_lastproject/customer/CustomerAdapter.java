@@ -1,6 +1,8 @@
 package com.example.project4_lastproject.customer;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +23,7 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHo
     LayoutInflater inflater;
     Context context;
     List<CustomerVO> list = new ArrayList<>();
+    private String TAG = "어댑터어어어어어어ㅓ어어";
 
     public CustomerAdapter(Context context, List<CustomerVO> list) {
         this.context = context; // 나중에 Intent나 화면처리 Toast이벤트 등에서 사용하기 위해서 받아옴
@@ -84,6 +87,35 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHo
             holder.cus_no.setText(list.get(i).getNo()+"");
             holder.cus_name.setText(list.get(i).getName()+"");
             holder.cus_phone.setText(list.get(i).getPhone()+"");
+
+            //바인딩이 되고나서 처리는 ↑ onBindViewHolder
+            holder.btn_detail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent( context , CustomerActivity.class );
+                    //intent 이용해서 현재 선택 된 VO정보를 CustomerActivity에서 받아보기
+                    //받은 정보를 log이용해서 찍거나 Toast이용해서 찍거나.
+                    //ArrayList<String> strs = strs.get(i) == 문자열 또는 NULL
+                    //ArrayList<VO> list = list.get(i) == VO 또는 NULL
+                    intent.putExtra("vo" , list.get(i));
+                    //Log.d(TAG, "onClick: "+list.get(i).getName());
+                    context.startActivity(intent);
+
+                }
+            });
+            holder.btn_edit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent( context , CustomerActivity.class);
+                    intent.putExtra("vo" , list.get(i));
+                    intent.putExtra("enable" , true);
+                    //Log.d(TAG, "onClick: "+list.get(i) );
+
+                    context.startActivity(intent);
+                }
+            });
+
+
         }
     }
 

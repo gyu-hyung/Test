@@ -1,6 +1,9 @@
 package com.example.project4_lastproject.customer;
 
-public class CustomerVO {
+import java.io.Serializable;
+
+public class CustomerVO implements Serializable {
+// 통신간에는 데이터가 메모리에 여러부분에 나눠져있으면 전송이 힘듬
 
 	private int id, no;
 	private String name, gender, email, phone;

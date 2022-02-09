@@ -2,18 +2,32 @@ package employee;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
 public class EmployeeServiceImpl implements EmployeeService {
 
+	@Autowired private EmployeeDAO dao;
+	
 	@Override
 	public List<EmployeeVO> employee_list() {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.employee_list();
 	}
 
 	@Override
 	public EmployeeVO employee_detail(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.employee_detail(id);
+	}
+
+	@Override
+	public List<DepartmentVO> Employee_department() {
+		return dao.Employee_department();
+	}
+
+	@Override
+	public List<EmployeeVO> employee_list(String dept_id) {
+		return dao.employee_list(dept_id);
 	}
 
 

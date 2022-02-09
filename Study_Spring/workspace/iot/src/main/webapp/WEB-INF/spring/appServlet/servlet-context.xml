@@ -26,7 +26,8 @@
 	<resources location="/resources/images/" mapping="/imgs/**" />
 
 
-
+<!-- root context 는 스프링에 서버나 디비같은거 설정하는 -->		
+<!-- servlet context는 스프링에 뷰같은것들을 설정하는 -->
 
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->

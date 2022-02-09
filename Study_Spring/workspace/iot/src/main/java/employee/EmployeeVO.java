@@ -1,12 +1,31 @@
 package employee;
 
 public class EmployeeVO {
-	// 사번 성명 부서콛 부서명 업무코드 업무명 급여
+	// 사번 성명 부서콛 부서명 업무코드 업무명 급여		이메일 연락처 입사일자
+	
 	private int employee_id, department_id, salary;
-	private String first_name, last_name, department_name, job_id, job_title;
+	private String first_name, last_name, department_name, job_id, job_title , email  , phone_number , hire_date;
 	
 	
 	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPhone_number() {
+		return phone_number;
+	}
+	public void setPhone_number(String phone_number) {
+		this.phone_number = phone_number;
+	}
+	public String getHire_date() {
+		return hire_date;
+	}
+	public void setHire_date(String hire_date) {
+		this.hire_date = hire_date;
+	}
 	public int getEmployee_id() {
 		return employee_id;
 	}

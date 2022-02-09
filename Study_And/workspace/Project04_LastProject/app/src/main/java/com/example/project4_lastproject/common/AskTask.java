@@ -39,17 +39,13 @@ public class AskTask extends AsyncTask<String , String , InputStream> {
         builder = MultipartEntityBuilder.create();//빌더 초기화식.(가져다가쓰면됨)
         builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);//인터넷 켜놓고 엔터치는 형식
 
-
-
-        for(int i=0 ; i<params.size() ; i++){
-                builder.addTextBody( params.get(i).getKey()  ,  params.get(i).getValue()
-                , ContentType.create("Multipart/related" , "UTF-8") );
+        //==============안드로이드에서 미드웨어로 데이터 보낼 때 추가할 부분
+            //무조건 String 타입으로
+        for(int i=0; i<params.size(); i++){
+            builder.addTextBody( params.get(i).getKey() , params.get(i).getValue()
+            , ContentType.create("Multipart/related" , "utf-8") );
         }
-
-
-
-
-
+        //==================================================================
         httpClient = AndroidHttpClient.newInstance("Android");//<=요청한 플랫폼(Android고정)
         httpPost = new HttpPost(postUrl);
         httpPost.setEntity(builder.build());
