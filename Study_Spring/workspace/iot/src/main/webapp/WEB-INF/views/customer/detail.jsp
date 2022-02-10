@@ -7,8 +7,8 @@
 <title>detail.jsp</title>
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
-<div id="content">
+<%-- <jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
+<div id="content"> --%>
 <h3>[ ${vo.name} ]고객 정보</h3>
 <table class="w-pct160">
 	<tr>
@@ -32,7 +32,7 @@
 </div>
 
 
-</div>
-<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
+<%-- </div>
+<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include> --%>
 </body>
 </html>

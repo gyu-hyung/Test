@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/include/header.jsp"/>
-<div id="content">
+<%-- <jsp:include page="/WEB-INF/views/include/header.jsp"/>
+<div id="content"> --%>
 <h3>[사원정보]</h3>
 <table class="w-pct40">
 	<tr>
@@ -36,7 +37,11 @@
 	</tr>
 	<tr>
 		<th>입사일자</th>
-		<td>${vo.hire_date}</td>
+		<td>
+		<%-- ${vo.hire_date} --%>
+		<fmt:parseDate value="${vo.hire_date}" var="dateValue" pattern="yyyy-MM-dd"/>
+		<fmt:formatDate value="${dateValue}" pattern="yyyy년 MM월 dd일"/>
+		</td>
 	</tr>
 </table>
 <div class="btnSet">
@@ -47,7 +52,7 @@
 
 
 
-</div>
-<jsp:include page="/WEB-INF/views/include/footer.jsp"/>
+<%-- </div>
+<jsp:include page="/WEB-INF/views/include/footer.jsp"/> --%>
 </body>
 </html>

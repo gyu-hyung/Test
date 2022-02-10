@@ -10,6 +10,25 @@
 
 
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8.7"
+        android:background="#123456"
+        android:id="@+id/container"/>
+    <!--Fragment 붙이기 위한 FrameLayout id 규칙 -->
+    <!-- Icon색 , Text색 , ※ xml로 Menu를 만들어 놓기 ※ -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.3"
+        app:itemIconTint="#9C9C9C"
+        app:itemTextColor="#989898"
+
+        app:menu="@menu/bottom_nav"
+        android:id="@+id/bottom_nav"
+        android:background="#131313"
+        />
 
 
 
@@ -18,24 +37,4 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</LinearLayout>
+    </LinearLayout>

@@ -1,6 +1,7 @@
 package com.example.project4_lastproject.customer;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,11 +10,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.project4_lastproject.R;
+import com.example.project4_lastproject.common.AskTask;
+import com.example.project4_lastproject.common.CommonMethod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +28,14 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHo
     LayoutInflater inflater;
     Context context;
     List<CustomerVO> list = new ArrayList<>();
+    CustomerMainFragment customerMainFragment;
     private String TAG = "어댑터어어어어어어ㅓ어어";
 
-    public CustomerAdapter(Context context, List<CustomerVO> list) {
+    public CustomerAdapter(Context context, List<CustomerVO> list, CustomerMainFragment customerMainFragment) {
         this.context = context; // 나중에 Intent나 화면처리 Toast이벤트 등에서 사용하기 위해서 받아옴
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.list = list;
+        this.customerMainFragment = customerMainFragment;
     }
 
     @NonNull
@@ -112,6 +119,40 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.ViewHo
                     //Log.d(TAG, "onClick: "+list.get(i) );
 
                     context.startActivity(intent);
+                }
+            });
+            holder.btn_del.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //AlertDialog <- 만드는 식을 외우지말것 이름을 외
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setTitle("고객 정보 삭제")
+                            .setMessage("정말 삭제하시겠습니까?")
+                            .setIcon(android.R.drawable.ic_dialog_alert);
+
+                    builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //AsnynTask이용해서 삭제 처리 해보기 => ?
+                            AskTask task = new AskTask("delete.cu");
+                            task.addParam("id" , list.get(i).getId()+"");
+                            CommonMethod.excuteGet(task);
+                            Toast.makeText(context, "삭제 처리 진행", Toast.LENGTH_SHORT).show();
+                            customerMainFragment.refresh();
+                        }
+                    });// positiveButton 네 눌렀을때
+
+                    builder.setNeutralButton("네니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(context, "삭제처리 하면안됨", Toast.LENGTH_SHORT).show();
+                        }
+                    });// posiviveButton
+                    AlertDialog alertDialog = builder.create();// builder.create();return AlertDialog
+                    alertDialog.show();
+
+
+
                 }
             });
 

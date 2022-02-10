@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:include page="/WEB-INF/views/include/header.jsp"/>
-<div id="content">
+<%-- <jsp:include page="/WEB-INF/views/include/header.jsp"/>
+<div id="content"> --%>
 <h3>[사원 정보 목록]</h3>
 <div id="list-top">
 <form action="list.hr" method="post">
@@ -55,7 +55,7 @@
 </table>
 
 
-</div>
-<jsp:include page="/WEB-INF/views/include/footer.jsp"/>
+<%-- </div>
+<jsp:include page="/WEB-INF/views/include/footer.jsp"/> --%>
 </body>
 </html>

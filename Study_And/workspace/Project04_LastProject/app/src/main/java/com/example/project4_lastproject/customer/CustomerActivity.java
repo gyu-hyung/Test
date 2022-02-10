@@ -89,11 +89,8 @@ public class CustomerActivity extends AppCompatActivity {
                 AskTask task = new AskTask("update.cu");
                 task.addParam("vo" , gson.toJson(vo));
                 CommonMethod.excuteGet(task);
-
-
             }
         });
-
 
 
 

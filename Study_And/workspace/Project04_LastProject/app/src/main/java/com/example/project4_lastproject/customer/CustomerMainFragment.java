@@ -31,8 +31,16 @@ public class CustomerMainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ViewGroup rootview =  (ViewGroup) inflater.inflate(R.layout.fragment_customer_main, container, false);
-        //↑ inflate 된 화면에서 위젯을 찾기위한 처리.
+        rcv_cus = rootview.findViewById(R.id.rcv_cus);
+        refresh();
 
+
+
+        return rootview;
+    }
+
+
+    public void refresh(){
         AskTask task = new AskTask("list.cu");
 
         InputStream in = CommonMethod.excuteGet(task);
@@ -42,21 +50,12 @@ public class CustomerMainFragment extends Fragment {
                 new TypeToken<List<CustomerVO>>(){}.getType()
         );
         String aa ="";
-
-
-        rcv_cus = rootview.findViewById(R.id.rcv_cus);
         //리사클러뷰는 어댑터 외에도 한가지 필요한게 있음 (LayoutManager 아이템을 어떤 방향으로 보여줄지를 결정)
         RecyclerView.LayoutManager manager
-            = new LinearLayoutManager( getContext() , RecyclerView.VERTICAL  , false);
-        CustomerAdapter adapter = new CustomerAdapter( getContext() , list );  //<= getContext오류가 난다면 (null)Context 받아오면됨
+                = new LinearLayoutManager( getContext() , RecyclerView.VERTICAL  , false);
+        CustomerAdapter adapter = new CustomerAdapter( getContext() , list , this);  //<= getContext오류가 난다면 (null)Context 받아오면됨
         rcv_cus.setLayoutManager(manager);
         rcv_cus.setAdapter(adapter);
-
-
-
-
-
-
-        return rootview;
     }
+
 }

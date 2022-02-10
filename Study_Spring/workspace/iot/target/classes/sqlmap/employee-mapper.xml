@@ -5,8 +5,8 @@
 
 <!-- 선택한 부서의 전체사원 정보 조회 -->
 <select id="dept_emp_list" resultType="employee.EmployeeVO">
-	select e.*,(select department_name from departments
-					where e.department_id = department_id ) department_name,
+	select e.*, nvl( (select department_name from departments
+					where e.department_id = department_id ), '미배치' ) department_name,
 					(select job_title from jobs
 					where e.job_id = job_id ) job_title
 	from employees e
@@ -26,7 +26,7 @@
 <!-- 전체 사원의 부서코드 및 부서명(스칼라 서브쿼리 이용) 조회 -->
 	select distinct department_id, 
 			nvl( (select department_name from departments
-							where e.department_id = department_id ), '미배치') department_name
+							where e.department_id = department_id ), '미배치' ) department_name
 	from employees e
 	order by department_name
 
@@ -49,8 +49,8 @@
 	where employee_id = #{id}
 	order by employee_id-->
 <!-- ③ 스칼라 서브쿼리를 이용하여 업무명 조회 	-->
-	select e.*, (select department_name from departments
-					where e.department_id = department_id) department_name,
+	select e.*, nvl( (select department_name from departments
+					where e.department_id = department_id ), '미배치' ) department_name,
 					(select job_title from jobs 
 						where e.job_id = job_id) job_title
 	from employees e
@@ -76,8 +76,8 @@
 	order by employee_id
 	
 	 ③ 스칼라 서브쿼리를 이용하여 업무명 조회 -->	
-	select e.*,(select department_name from departments
-					where e.department_id = department_id ) department_name,
+	select e.*, nvl( (select department_name from departments
+					where e.department_id = department_id ), '미배치' ) department_name,
 					(select job_title from jobs
 					where e.job_id = job_id ) job_title
 	from employees e
