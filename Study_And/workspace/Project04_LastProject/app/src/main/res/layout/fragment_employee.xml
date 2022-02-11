@@ -26,12 +26,63 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/emp_swipe">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="번호"
+                android:textSize="15dp"
+                android:textAlignment="center"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="이름"
+                android:textSize="15dp"
+                android:textAlignment="center"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="부서"
+                android:textSize="15dp"
+                android:textAlignment="center"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="근무도시"
+                android:textSize="15dp"
+                android:textAlignment="center"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="나라"
+                android:textSize="15dp"
+                android:textAlignment="center"
+                />
+
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginVertical="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/emp_rcv"/>
-
+        </FrameLayout>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

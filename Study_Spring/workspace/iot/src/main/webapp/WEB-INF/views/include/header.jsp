@@ -39,14 +39,22 @@ header .category ul:last-child { float:right; margin-right: 200px;}
          <li><a href='list.da'>공공 데이터</a></li>
       </ul>
       
-      <!-- 로그인, 회원가입 버튼 -->
-      <ul>
-         <li>
-            <a class="btn-fill" href="login">로그인</a>
-            <a class="btn-fill" href="member">회원가입</a>
-         </li>
+      <!-- 로그인하지않은경우-->
       
+      <ul>
+      	  <c:if test="${empty loginInfo}">
+	         <li>
+	            <a class="btn-fill" href="login">로그인</a>
+	            <a class="btn-fill" href="member">회원가입</a>
+	         </li>
+      	  </c:if>
+      <!-- 로그인 한 경우 -->
+      	  <c:if test="${ !empty loginInfo}">
+	      		<li><strong>${loginInfo.name} 님</strong></li> 
+		     	<li><a class="btn-fill" href='logout'>로그아웃</a></li>
+      	  </c:if>
       </ul>
+      
    </div>
 </header>
 

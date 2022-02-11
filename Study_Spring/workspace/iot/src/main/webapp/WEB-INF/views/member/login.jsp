@@ -51,11 +51,13 @@
          <div>
             <%-- 네이버 개발자 사이트에서 documents > 네이버로그인 > 개발가이드 > 로그인 버튼 사용 가이드 --%>
             <%-- 카카오 디벨로퍼 > 카카오로그인 > 문서 > 유용한 참고 정보 > 디자인 가이드 > 표준디자인 > 리소스 다운로드 --%>
-            <a href=''><img src="imgs/naver_login.png" class="social"/></a>
-            <a href=''><img src="imgs/kakao_login.png" class="social"/></a>
+            <a href='naverLogin'><img src="imgs/naver_login.png" class="social"/></a>
+            <a href='kakaoLogin'><img src="imgs/kakao_login.png" class="social"/></a>
             <div style="width: 80%; margin: 25px auto; border: 1px solid #ccc" ></div>
             <input type="text" placeholder="아이디" id="userid" autofocus/><br/>
-            <input type="password" placeholder="비밀번호" id="userpw"/><br/>
+            <input type="password" placeholder="비밀번호" id="userpw" 
+            		onkeypress="if (event.keyCode == 13 ) go_login() " /><br/>
+            		<!-- onkeypress : Enter 키를 눌렀을때 go_login() 동작     enter ketCode : 13 -->
             <a class="btn-fill" onclick="go_login()">로그인</a>
          </div>
       </div>
@@ -81,9 +83,14 @@
 	   $.ajax({
 		   url : 'iotLogin'
 		   ,data : {id:$('#userid').val() , pw: $('#userpw').val() }
-	   	   , success : function () {
+	   	   , success : function ( response ) {
+	   		   if ( response ) {
+	   			   location='<c:url value="/" />';
+	   		   }else{
+	   			   alert("아이디나 비밀번호가 일치하지 않습니다~!.");
+	   		   }
 	   		   
-	   	   }, error : function (req , text){
+	   	   }, error : function ( req , text ){
 	   		   alert(text + ':' + req.status);
 	   	   }
 		  

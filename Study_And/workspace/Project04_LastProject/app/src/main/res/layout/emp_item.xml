@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        android:background="#DFE2FF"
+        >
+        <TextView
+            android:layout_gravity="center"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="번호"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:id="@+id/tv_id"
+
+            />
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="이름"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:id="@+id/tv_name"
+            />
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="부서"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:id="@+id/tv_part"
+            />
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="근무도시"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:id="@+id/tv_city"
+            />
+        <TextView
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="나라"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:id="@+id/tv_country"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

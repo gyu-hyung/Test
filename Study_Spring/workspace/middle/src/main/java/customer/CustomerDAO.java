@@ -4,13 +4,14 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 
 @Repository	// 저장소 역할을 하는 클래스를 객체로 만들 때 사용
 public class CustomerDAO  {
 
-	@Autowired private SqlSession sql;
+	@Autowired @Qualifier("hr") private SqlSession sql;
 	
 	public void customer_insert(CustomerVO vo) {
 		// TODO Auto-generated method stub
@@ -27,12 +28,14 @@ public class CustomerDAO  {
 	}
 
 	public void customer_update(CustomerVO vo) {
-		// TODO Auto-generated method stub
+		int result = sql.update("customer.mapper.update" ,vo);
+		System.out.println("이름 : " + vo.getName() );
 
 	}
 
 	public void customer_delete(int id) {
-		// TODO Auto-generated method stub
+		int result = sql.delete("customer.mapper.delete" ,id);
+		System.out.println("이름 : " +  result);
 
 	}
 

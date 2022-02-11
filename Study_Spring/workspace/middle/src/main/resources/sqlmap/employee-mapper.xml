@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- mybatis -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="employee.mapper">
+
+<!-- 선택한 부서의 전체사원 정보 조회 -->
+<select id="list" resultType="employee.EmployeeVO">
+	select *
+	from employees e
+	order by employee_id
+</select>
+
+<select id="select" resultType="employee.EmployeeVO2">
+	SELECT  e.employee_id, e.first_name||' '||e.last_name name, d.department_name, l.city, c.country_name
+	FROM    employees e left outer join departments d on e.department_id = d.department_id
+	                    left outer join locations l on d.location_id = l.location_id
+	                    left outer join countries c on l.country_id = c.country_id
+	WHERE upper (E.FIRST_NAME || ' ' || E.LAST_NAME) LIKE upper('%'||#{search, jdbcType=VARCHAR}||'%')
+	or upper(d.department_name) LIKE upper('%'||#{search, jdbcType=VARCHAR}||'%')
+	or upper(l.city) LIKE upper('%'||#{search, jdbcType=VARCHAR}||'%')
+	or upper(c.country_name) LIKE upper('%'||#{search, jdbcType=VARCHAR}||'%')
+</select>
+
+
+</mapper>

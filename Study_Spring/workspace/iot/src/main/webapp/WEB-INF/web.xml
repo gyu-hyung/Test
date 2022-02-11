@@ -56,6 +56,26 @@
 	</filter-mapping>
 	<!-- 한글 설정 끗 -->
 	
+	
+	<!-- session 시간 변경 -->
+	<session-config>
+		<session-timeout>120</session-timeout><!-- 분단위    120 : 120분 -->	
+	</session-config>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 
