@@ -7,14 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-@Repository	//저장소역할을 하는 클래스를 객체로 만들때 사용
+
+@Repository	// 저장소 역할을 하는 클래스를 객체로 만들 때 사용
 public class CustomerDAO implements CustomerService {
 
 	@Autowired @Qualifier("hanul") private SqlSession sql;
 	
 	@Override
 	public void customer_insert(CustomerVO vo) {
-		sql.insert("customer.mapper.insert" , vo);
+		sql.insert("customer.mapper.insert", vo);
 	}
 
 	@Override
@@ -29,14 +30,12 @@ public class CustomerDAO implements CustomerService {
 
 	@Override
 	public void customer_update(CustomerVO vo) {
-		sql.update("customer.mapper.update" , vo);
-
+		sql.update("customer.mapper.update", vo);
 	}
 
 	@Override
 	public void customer_delete(int id) {
 		sql.delete("customer.mapper.delete", id);
-
 	}
 
 }

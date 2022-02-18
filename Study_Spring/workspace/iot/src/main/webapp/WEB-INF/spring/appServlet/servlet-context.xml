@@ -14,22 +14,13 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
-
-
-
-		<!-- servletcontext는 뷰와 관련ㄴ된 설정하는 곳이라드라 -->
-	<!-- css폴더 맵핑 -->
+	<!-- css 폴더 맵핑 -->
 	<resources location="/resources/css/" mapping="/css/**" />
-	<!-- js폴더 맵핑 -->
+	<!-- js 폴더 맵핑 -->
 	<resources location="/resources/js/" mapping="/js/**" />
-	<!-- images폴더 맵핑 -->
+	<!-- images 폴더 맵핑 -->
 	<resources location="/resources/images/" mapping="/imgs/**" />
-
-
-<!-- root context 는 스프링에 서버나 디비같은거 설정하는 -->		
-<!-- servlet context는 스프링에 뷰같은것들을 설정하는 -->
-
-
+	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
@@ -47,10 +38,15 @@
 		<beans:property name="definitions" value="/WEB-INF/views/tiles/config.xml" />
 	</beans:bean>
 	
-	
-	
 	<context:component-scan base-package="com.hanul.iot" />
-	
-	
-	
+
 </beans:beans>
+
+
+
+
+
+
+
+
+

@@ -1,12 +1,11 @@
 package employee;
 
 public class EmployeeVO {
-	// 사번 성명 부서콛 부서명 업무코드 업무명 급여		이메일 연락처 입사일자
+
+	// 사번	성명	부서코드	부서명	업무코드	업무명	급여 이메일 연락처 입사일자
 	
 	private int employee_id, department_id, salary;
-	private String first_name, last_name, department_name, job_id, job_title , email  , phone_number , hire_date;
-	
-	
+	private String first_name, last_name, department_name, job_id, job_title, email, phone_number, hire_date;
 	
 	public String getEmail() {
 		return email;
@@ -74,6 +73,7 @@ public class EmployeeVO {
 	public void setJob_title(String job_title) {
 		this.job_title = job_title;
 	}
+	
 	
 	
 }

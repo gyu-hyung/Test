@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-@Repository	//저장소역할~
+@Repository
 public class EmployeeDAO implements EmployeeService {
 
-	@Autowired @Qualifier("hr") SqlSession sql;
+	@Autowired @Qualifier("hr") private SqlSession sql;
 	@Override
 	public List<EmployeeVO> employee_list() {
 		return sql.selectList("employee.mapper.list");
@@ -22,7 +22,7 @@ public class EmployeeDAO implements EmployeeService {
 	}
 
 	@Override
-	public List<DepartmentVO> Employee_department() {
+	public List<DepartmentVO> employee_department() {
 		return sql.selectList("employee.mapper.deptlist");
 	}
 

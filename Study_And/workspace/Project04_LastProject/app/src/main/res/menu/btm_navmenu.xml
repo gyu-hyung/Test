@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_cus"
+        app:showAsAction="ifRoom"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="고객 관리"/>
+    <item
+        android:id="@+id/menu_emp"
+        app:showAsAction="ifRoom"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_menu_week"
+        android:title="사원 조회"/>
+    <item
+        android:id="@+id/menu_notice"
+        app:showAsAction="ifRoom"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_menu_myplaces"
+        android:title="공지 사항"/>
+
+
+</menu>

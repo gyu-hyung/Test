@@ -1,0 +1,60 @@
+(따로 외우거나 깊게 공부할 필요는 없음 , 왜 필요한지 어느부분에서 어떻게 수정해야되는지만 알면됨)
+일반적으로 INTERNET이나 여러가지 기능중 개인정보와 관련이 없는 경우에는
+사용자(유저)의 동의 없이도 Manifest에 Permission(권한) 신청만 넣어두면 사용이 가능한 상태가됨.
+
+그외에 카메라 , 갤러리 , 위치 정보 등 민감한 개인정보와 관련이 있는 경우에는
+이 어플리케이션에서 해당하는 권한을 사용하겠다고 동의를 받아야지만 사용가능함.
+
+그외에도 API30 이상부터는 위험권한 부여 외에도 queries라는 권한 신청을 Intent형태로 해줘야함.
+
+1.Manitest.xml 에 queries , user-permission 등 넣어주기.
+
+2.메소드 호출해서 사용자에게 동의받기.
+
+
+↓동의를 받을수있게끔 처리해둔 메소드.
+
+// 위험권한
+private void checkDangerousPermissions() {
+String[] permissions = {
+Manifest.permission.CAMERA, //카메라 사용하기
+Manifest.permission.ACCESS_MEDIA_LOCATION, //미디어 정보가 있는 위치
+Manifest.permission.READ_EXTERNAL_STORAGE, // 외부저장소 읽기
+Manifest.permission.WRITE_EXTERNAL_STORAGE // 외부저장소 쓰기
+};
+
+int permissionCheck = PackageManager.PERMISSION_GRANTED;
+for (int i = 0; i < permissions.length; i++) {
+permissionCheck = ContextCompat.checkSelfPermission(this, permissions[i]);
+if (permissionCheck == PackageManager.PERMISSION_DENIED) {
+break;
+}
+}
+
+if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
+Toast.makeText(this, "권한 있음", Toast.LENGTH_LONG).show();
+} else {
+Toast.makeText(this, "권한 없음", Toast.LENGTH_LONG).show();
+
+if (ActivityCompat.shouldShowRequestPermissionRationale(this, permissions[0])) {
+Toast.makeText(this, "권한 설명 필요함.", Toast.LENGTH_LONG).show();
+} else {
+ActivityCompat.requestPermissions(this, permissions, 1);
+}
+}
+}
+
+@Override
+public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+if (requestCode == 1) {
+for (int i = 0; i < permissions.length; i++) {
+if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
+Toast.makeText(this, permissions[i] + " 권한이 승인됨.", Toast.LENGTH_LONG).show();
+} else {
+Toast.makeText(this, permissions[i] + " 권한이 승인되지 않음.", Toast.LENGTH_LONG).show();
+}
+}
+}
+}

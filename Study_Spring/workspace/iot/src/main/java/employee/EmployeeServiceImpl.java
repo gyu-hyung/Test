@@ -21,15 +21,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public List<DepartmentVO> Employee_department() {
-		return dao.Employee_department();
+	public List<DepartmentVO> employee_department() {
+		return dao.employee_department();
 	}
 
 	@Override
 	public List<EmployeeVO> employee_list(String dept_id) {
 		return dao.employee_list(dept_id);
 	}
-
-
 
 }

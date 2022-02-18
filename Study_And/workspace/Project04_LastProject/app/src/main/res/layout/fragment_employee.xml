@@ -4,88 +4,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".employees.EmployeeFragment"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="사원정보 목록"
+        android:text="사원 정보 목록"
         android:textSize="20dp"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:layout_margin="10dp"
-        />
-
+        android:textStyle="bold"
+        android:layout_margin="10dp"/>
 
     <androidx.appcompat.widget.SearchView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/emp_srchview"/>
-
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/emp_swipe">
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="번호"
-                android:textSize="15dp"
-                android:textAlignment="center"
-                />
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="이름"
-                android:textSize="15dp"
-                android:textAlignment="center"
-                />
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="부서"
-                android:textSize="15dp"
-                android:textAlignment="center"
-                />
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="근무도시"
-                android:textSize="15dp"
-                android:textAlignment="center"
-                />
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="나라"
-                android:textSize="15dp"
-                android:textAlignment="center"
-                />
-
-        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginVertical="20dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/emp_rcv"/>
-        </FrameLayout>
+
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
 
 
 

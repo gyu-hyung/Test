@@ -2,11 +2,8 @@ package customer;
 
 public class CustomerVO {
 
-	private int id ,no;
+	private int id, no;
 	private String name, gender, email, phone;
-	
-	
-	
 	
 	public int getNo() {
 		return no;
@@ -44,9 +41,6 @@ public class CustomerVO {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
-	
-	
 	
 	
 }

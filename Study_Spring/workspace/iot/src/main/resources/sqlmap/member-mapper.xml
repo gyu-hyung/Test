@@ -1,14 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- mybatis -->
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper  namespace="member.mapper">
+<mapper namespace="member.mapper">
 
-<!-- 로그인 id ,pw 일치 여부 조회 -->
+
+<!-- 회원가입 정보저장 -->
+<insert id="join">
+	insert into s_member (name , id , pw , gender , email , birth , tel , post , addr )
+	values (#{name} , #{id} , #{pw} , #{gender} , #{email} , #{birth} , #{tel} , #{post} , #{addr} )
+</insert>
+
+
+
+
+
+
+
+<!-- id 중복확인 조회 -->
+<select id="id_check" resultType="integer">
+	select count(*) from s_member
+	where id = #{id}
+</select>
+
+<!-- social 로그인 정보 변경 수정 -->
+<update id="social_update">
+	update s_member set name = #{name}, gender = #{gender}	
+	where ${social_type} = #{social_email}
+</update>
+
+<!-- social 로그인 신규 저장 -->
+<insert id="social_insert">
+	insert into s_member (id, name, gender, ${social_type}  )
+	values ( #{id}, #{name}, #{gender}, #{social_email})
+</insert>
+
+<!-- social_email 존재 여부 조회 -->
+<select id="social_email" resultType="integer">
+	select count(*) from s_member
+	where ${social_type} = #{social_email}
+	<!-- ${socail_type} 내 들어있는 동적 데이터 (즉, 네이버, 카카오)를 불러옴 -->
+</select>
+
+
+<!-- 로그인 id, pw 일치 여부 조회 -->
 <select id="login" resultType="member.MemberVO">
 	select * from s_member
 	where id = #{id}
 	and pw = #{pw}
 </select>
 
-
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

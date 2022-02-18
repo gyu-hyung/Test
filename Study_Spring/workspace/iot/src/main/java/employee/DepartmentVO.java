@@ -4,6 +4,8 @@ public class DepartmentVO {
 
 	private int department_id;
 	private String department_name;
+	
+	
 	public int getDepartment_id() {
 		return department_id;
 	}
@@ -16,6 +18,4 @@ public class DepartmentVO {
 	public void setDepartment_name(String department_name) {
 		this.department_name = department_name;
 	}
-	
-	
 }

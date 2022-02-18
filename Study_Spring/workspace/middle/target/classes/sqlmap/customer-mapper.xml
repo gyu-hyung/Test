@@ -6,26 +6,16 @@
 	select rownum no, c.* 
 	from (select * from customer order by name) c
 </select>
-
 <update id="update">
-	    update customer set 
-		gender      = #{gender,jdbcType=VARCHAR },
-		email       = #{email},
-		phone       = #{phone}
+	update customer set 
+		 gender = #{gender,jdbcType=VARCHAR },
+		email  = #{email },
+		phone  = #{phone }
 		where id = #{id}
-		<!-- update customer 
-set 
-    name = 'ㅇㄴㄹㅇㄴㄹ',
-    email = 'ㄴㅇㄹㅇㄴ',
-    gender = '호',
-    phone = 'ㅇㄴㄹㄴㅇㄹ'
-    where id = 6
- -->
 </update>
 
-
 <delete id="delete">
-	delete from  customer where id = #{id}
+	delete FROM customer 
+		where id = #{id}
 </delete>
-
 </mapper>

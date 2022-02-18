@@ -1,0 +1,12 @@
+Intent를 이용해서 파일들이 전송이나 여러가지 처리를 위해서는
+FileProvider라는것이 필요함.
+
+1.AndroidManifest.xml<= 만들어주기.
+
+2.xml형태로 .=> static으로 되어있는 String변수를 지정 ( 경로 설정 )
+-provider meta에 사용.
+-----------------------------------------------------------------------------
+3.Intent를 이용. ( 명시 , 암시 ) Activity를 실행하고나서 결과를 받아와야할때가있음.
+=>startActivityForResult (액티비티를 사용하고나서 결과가 반드시 필요할때 )
+=>code 성공했을때 , 내가보내준 코드가 어떤것인지. req_code ?
+req_code <=

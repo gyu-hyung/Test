@@ -5,16 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
         android:id="@+id/container"/>
-
-
-
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/btm_nav"
+        app:menu="@menu/btm_navmenu"
+        app:itemIconTint="@drawable/btm_nav_color"
+        app:itemTextColor="@drawable/btm_nav_color"
+        />
 
 
 
