@@ -22,12 +22,9 @@
 		<put-attribute name="content" value="/WEB-INF/views/member/login.jsp" />
 	</definition>
 	
-	
-	<definition name="/error/*" template="/WEB-INF/views/tiles/default.jsp">
+	<definition name="error/*" template="/WEB-INF/views/tiles/default.jsp">
 		<put-attribute name="content" value="/WEB-INF/views/error/{1}.jsp" />
 	</definition>
-	
-	
 </tiles-definitions>       
 
 

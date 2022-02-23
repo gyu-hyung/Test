@@ -1,6 +1,8 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
-*{ font-family: 'Noto Sans KR', sans-serif; }
+
+* { font-family: 'Noto Sans KR', sans-serif; }
+
 body {
 	margin: 0 auto;
 	text-align: center;
@@ -34,6 +36,9 @@ table th, table td {
 }
 
 table th { background: #f6f6f6;}
+table tr td a:hover, ul.grid li a:hover {
+	font-weight: bold; color: coral;
+}
 
 .btnSet { margin-top: 20px; }
 
@@ -66,6 +71,7 @@ a.btn-fill-s {
 
 a:hover { cursor: pointer;}
 
+
 input {
 	height: 22px;
 	padding : 3px 5px;
@@ -79,13 +85,12 @@ input[type=radio] {
 	vertical-align: middle;
 }
 
-textarea{ border: 1px solid #b0b0b0; font-size: 15px; padding: 10px; height:250px;  resize: none;}
-input[name=title], textarea[name=content] { width: calc(100% - 24px )}
+textarea {border: 1px solid #b0b0b0; font-size: 15px; padding: 10px; height: 250px; resize: none; }
+input[name=title], textarea[name=content] { width: calc(100% - 24px)}
 
-
-input[type=file] , #delete-file {display: none;}
-.file-img { width: 20px; height: 20px; }
-
+input[type=file], #delete-file { display: none;}
+.file-img { width: 20px; height: 18px; }
+#attach-file, #delete-file { color: #ff0000; }
 
 select:focus, input:focus, textarea:focus { outline: none;}
 select { height: 34px; border: 1px solid #b0b0b0; padding: 0 5px; cursor: pointer; }
@@ -94,15 +99,28 @@ ul { list-style: none; padding: 0;}
 
 .center {position: absolute; left:50%; top:50%; transform:translate(-50%, -50%); }
 
+.middle * {vertical-align: middle;}
+#preview {height: 36px; display: inline-block;}
+#preview-img{ max-height: 34px;}
+
 .left {text-align: left;}
-.right{text-align: right;}
+.right {text-align: right;}
 
 #list-top { padding: 20px 10%; }
 #list-top div { height: 36px;}
 #list-top ul { margin: 0; display: flex; }
 #list-top ul li * { vertical-align: middle;}
 #list-top ul li:not(:first-child) { margin-left: 3px; }
-#list-top ul {float:right;}
+#list-top ul:first-child { float: left;}
+#list-top ul:last-child { float: right;}
+
+ul.grid { width: 80%; margin: 0 10%; display: inline-block; }
+ul.grid li { float: left; width: 19%; height: 150px; margin: 20px 1.25% 0 0; 
+		border: 1px solid #b0b0b0; box-sizing: border-box; }
+ul.grid li:nth-child(5n) {margin-right: 0;}		/* 5n  <- 5개 마다 */
+ul.grid li div {text-align: left; padding: 9px 10px; }
+ul.grid li div:nth-child(2) {padding: 0px 10px;}
+ul.grid li div:nth-child(1) {height: 65px;}
 
 /* width 값을 class 로 등록하여 관리 */
 .w-pct80 {width: 80%;}
@@ -119,15 +137,15 @@ ul { list-style: none; padding: 0;}
 .w-px150 {width: 150px;}
 .w-px120 {width: 120px;}
 .w-px100 {width: 100px;}
-.w-px90  {width: 90px;}
-.w-px80  {width: 80px;}
-.w-px70  {width: 70px;}
-.w-px60  {width: 60px;}
-.w-px50  {width: 50px;}
-.w-px40  {width: 40px;}
-.w-px30  {width: 30px;}
-.w-px20  {width: 20px;}
-.w-px10  {width: 10px;}
+.w-px90 {width: 90px;}
+.w-px80 {width: 80px;}
+.w-px70 {width: 70px;}
+.w-px60 {width: 60px;}
+.w-px50 {width: 50px;}
+.w-px40 {width: 40px;}
+.w-px30 {width: 30px;}
+.w-px20 {width: 20px;}
+.w-px10 {width: 10px;}
 
 
 

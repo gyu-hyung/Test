@@ -20,7 +20,7 @@
 	/* flex 방향 지정 flex-direction : column (가로) */
 </style>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
-<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src='js/common.js'></script>
 </head>
 <body>
 	<div id='wrap'>

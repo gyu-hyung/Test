@@ -14,8 +14,7 @@ public class MemberDAO implements MemberService {
 	
 	@Override
 	public boolean member_join(MemberVO vo) {
-		
-		return sql.insert("member.mapper.join", vo) == 1 ? true : false;
+		return sql.insert("member.mapper.join", vo) == 1 ? true	: false;
 	}
 
 	@Override
@@ -55,8 +54,6 @@ public class MemberDAO implements MemberService {
 		return sql.update("member.mapper.social_update", vo) == 0 ? false : true;
 	}
 
-	
-	
 }
 
 

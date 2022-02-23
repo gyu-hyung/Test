@@ -34,24 +34,22 @@ public class HomeController {
 	
 	// error 처리 페이지 요청
 	@RequestMapping("/error")
-	public String error(HttpSession session , HttpServletRequest req , Model model) {
+	public String error(HttpSession session, HttpServletRequest request, Model model) {
 		session.setAttribute("category", "error");
 		
-		Throwable error = (Throwable) req.getAttribute("javax.servlet.error.exception");
+		Throwable error =  (Throwable) request.getAttribute("javax.servlet.error.exception");
 		StringBuffer msg = new StringBuffer();
-		while(error != null) {
+		while( error != null ) {
 			msg.append("<p>").append(error.getMessage() ).append("</p>");
 			error = error.getCause();
 		}
 		model.addAttribute("msg", msg.toString());
 		
-		int code = (int)req.getAttribute("javax.servlet.error.status_code");
+		int code = (int) request.getAttribute("javax.servlet.error.status_code");
 		
 		return "error/" + (code == 404 ? 404 : "common");
-		//error 코드가 404면 404.jsp  or  common.jsp 페이지로 리턴
+		// error 코드가 404 이면 404.jsp를 아니면 common.jsp 페이지로 리턴		
 	}
-	
-	
 	
 }
 

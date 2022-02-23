@@ -36,8 +36,8 @@ header .category ul:last-child { float:right; margin-right: 200px;}
 			<li><a href='<c:url value="/" />'><img src='imgs/hanul.logo.png' /></a></li>
 			<li><a href='list.cu' ${category eq 'cu' ? "class='active'" : '' } >고객 관리</a></li>
 			<li><a href='list.hr' ${category eq 'hr' ? "class='active'" : '' } >사원 목록</a></li>
-			<li><a href='list.no' ${category eq 'no' ? "class='active'" : '' } >공지 사항</a></li>		<!-- 눌럿을때 파랗게 유지되는거 -->
-			<li><a href='list.bo'>방명록</a></li>
+			<li><a href='list.no' ${category eq 'no' ? "class='active'" : '' } >공지 사항</a></li>
+			<li><a href='list.bo' ${category eq 'bo' ? "class='active'" : '' } >방명록</a></li>
 			<li><a href='list.da'>공공 데이터</a></li>
 		</ul>
 		<ul>

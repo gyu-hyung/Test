@@ -2,52 +2,105 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="notice.mapper">
 
-<!-- 해당 ID 의 공지 게시글 내용수정 -->
+
+<!-- 공지글에 대한 신규 답글 등록 -->
+<insert id="reply_insert">
+<!-- root : 원글의 id를 root로 그대로 담는다.
+	 step : 동일한 root를 갖는 글에 대해 원 글의 step 보다 더 큰 step 을 가진 경우
+	 	step +1 로 변경한 후 원글의 step +1 로 저장한다.
+	 indent : 상위 글의 indent +1 -->
+	<!-- insert 전 step 에 대한 값을 변경한 후 그 값을 insert처리 -->
+	
+	<![CDATA[
+		{
+			call declare
+			begin		
+				update notice set step = step +1 where root = #{root} and step > #{step};
+				
+				insert into notice (id, title, content, writer, filename, filepath, root, step, indent )
+				values ( seq_notice.nextval, #{title}, #{content}, #{writer}
+										, #{filename, jdbcType=VARCHAR}, #{filepath, jdbcType=VARCHAR}
+										, #{root}, #{step}+1, #{indent}+1 );
+			end							
+		}	
+	]]>		
+</insert>
+
+
+<!-- 해당 ID의 공지 게시글 내용 수정 -->
 <update id="update">
 	update notice set title = #{title}, content = #{content}
 		, filename = #{filename, jdbcType=VARCHAR}
-		, filepath = #{filepath, jdbcType=VARCHAR}
+		, filepath = #{filepath, jdbcType=VARCHAR}	
 	where id = #{id}
+
 </update>
 
-<!-- 해당 id의 공지글삭제 요청 -->
+<!-- 해당 ID의 공지글 삭제 -->
 <delete id="delete">
 	delete from notice
 	where id = #{id}
 </delete>
 
-
-<!-- 상세화면 조회 전 조회 수 증가 처리 -->
+<!-- 상세화면 조회 전 조회수 증가(변경) -->
 <update id="read">
 	update notice set readcnt = readcnt + 1
 	where id = #{id}
 </update>
 
-
-<!-- 공지사항 상세조회 처리 -->
+<!-- 공지글 상세 내용 조회 -->
 <select id="detail" resultType="notice.NoticeVO">
-	select notice.* , (select name from s_member where id = notice.writer ) name 
+	select notice.*, (select name from s_member where id = notice.writer) name 
 	from notice
 	where id = #{id}
 </select>
 
-
 <!-- 공지사항 신규 글 등록 처리 -->
 <insert id="insert">
-	insert into notice (id , title , content , writer , filename , filepath)
-	values ( seq_notice.nextval , #{title} , #{content} , #{writer} , #{filename , jdbcType=VARCHAR } , #{filepath , jdbcType=VARCHAR } )
+	insert into notice (id, root, title, content, writer, filename, filepath)
+	values ( seq_notice.nextval, seq_notice.curral, #{title}, #{content}, #{writer}
+	  		, #{filename, jdbcType=VARCHAR}, #{filepath, jdbcType=VARCHAR} )
 </insert>
 
+<sql id='where_search'>
+	<!-- 제목에 '테스트' 문자가 있는 것을 조회한다면.. where title like '%테스트%'  -->
+	<if test="search == 'title' or search == 'content'">
+		where ${search} like '%'||#{keyword}||'%'
+	</if>
+	<!-- 작성자에 '자' 문자가 있는 것을 조회한다면  -->
+	<if test="search == 'writer'">
+		where writer in (select id from s_member where name like '%'||#{keyword}||'%' )
+	</if>
+	<!-- 검색 조건이 전체인 경우 -->
+	<if test="search == 'all'">
+		where title like '%'||#{keyword}||'%'
+		or content like '%'||#{keyword}||'%'
+		or writer in (select id from s_member where name like '%'||#{keyword}||'%' )	
+	</if>	
+</sql>
 
-<!-- 공지사항 목록조회 -->
+<!-- 페이지 처리된 글 목록 조회 -->
 <select id="list" resultType="notice.NoticeVO">
-	<!-- select * from notice -->
-	select rownum no, n.*, (select name from s_member where id = n.writer ) name 
-	from (select * from notice order by id) n
-	order by no desc
+	select * 
+	from (select rownum no, n.*, (select name from s_member where id = n.writer) name
+			from (select * from notice <include refid="where_search" />
+			order by root, step desc ) n			<!-- id ▶ root , step 으로 변경했움-->
+ 			order by no desc)
+ 	where no between #{beginList} and #{endList}
 </select>
 
+<!-- 전체 공지글 수 조회 -->
+<select id="totalList" resultType="integer">
+	select count(*) from notice <include refid="where_search" />
+</select>
 
+<!-- 공지사항 목록 조회 -->
+<!-- <select id="list" resultType="notice.NoticeVO"> -->
+<!-- 	select * from notice -->
+<!-- 	select rownum no, n.*, (select name from s_member where id = n.writer) name  -->
+<!-- 	from (select * from notice order by id) n -->
+<!-- 	order by no desc -->
+<!-- </select> -->
 </mapper>
 
 

@@ -7,11 +7,15 @@
 <script type="text/javascript" src='js/file_check.js'></script>
 </head>
 <body>
-<h3>신규 공지글</h3>
+<h3>답글 입력</h3>
 <!-- 파일 첨부하여 submit() 하는 경우
 	1. method 는 post 로 지정
 	2. enctype='multipart/form-data'  지정 -->
-<form action="insert.no" method="post" enctype="multipart/form-data">
+<form action="reply_insert.no" method="post" enctype="multipart/form-data">
+<!-- 답글에 필요한 root, step, indent 값을 hidden으로 전달 -->
+<input type="hidden" name="root" value="${vo.root}" />
+<input type="hidden" name="step" value="${vo.step}" />
+<input type="hidden" name="indent" value="${vo.indent}" />
 <table>
 	<tr>
 		<th class='w-px120'>제목</th>

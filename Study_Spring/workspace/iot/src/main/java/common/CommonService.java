@@ -12,7 +12,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
-import javax.servlet.Servlet;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -114,53 +113,54 @@ public class CommonService {
 		return result;
 	}
 
-	//파일 업로드 처리
-	// 업로드할 처리
-	//D:\Study_Spring\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\iot\resources
-	public String fileUpload(String categoty , MultipartFile file , HttpSession session) {
-		
+	// 파일 업로드 처리
+	public String fileUpload(String category, MultipartFile file, HttpSession session) {
+		// 업로드할 위치
+		// D:\Study_Spring\Workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\iot\resources
 		String resources = session.getServletContext().getRealPath("resources");
-		String folder = resources + "/upload/" + categoty + "/"
-				+ new SimpleDateFormat("yyyy/MM/dd").format(new Date()	);
+		
+		String folder = resources + "/upload/" + category + "/"
+					+ new SimpleDateFormat("yyyy/MM/dd").format(new Date());
 		
 		String uuid = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
 		
 		File dir = new File( folder );
 		
-		if( !dir.exists() ) dir.mkdirs();
+		if ( ! dir.exists() ) dir.mkdirs();
 		try {
-			file.transferTo( new File(folder , uuid) );
+			file.transferTo( new File(folder, uuid) );
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		// 		upload/notice/2022/02/17		/		afdadsfghsxcfweasjJ_abc.txt	
+		//   upload/notice/2022/02/17/sdakjlfslksdklsdkl2j_abc.txt
 		return folder.substring(resources.length() + 1) + "/" + uuid;
 	}
-
 	
-	//파일 다운로드 처리
-	public void fileDownload(String filename, String filepath, HttpSession session, HttpServletResponse res) {		
-		//실제 파일의 위치와 파일을 찾아 file 처리
+	// 파일 다운로드 처리
+	public void fileDownload(String filename, String filepath, HttpSession session, HttpServletResponse response) {
+		// 실제 파일의 위치와 파일을 찾아 file 처리
 		File file = new File( session.getServletContext().getRealPath("resources") + "/" + filepath );
 		
 		String mime = session.getServletContext().getMimeType(filename);
 		
-		res.setContentType(mime);  //응답처리할 Mime 타입 설정
+		response.setContentType(mime);	// 응답처리할 Mime 타입 설정
 		try {
-			
-			filename = URLEncoder.encode(filename , "utf-8").replaceAll("\\+", "%20");
-			res.setHeader("content-disposition", "attachment; filename=" + filename);
-		
-			
-			ServletOutputStream out = res.getOutputStream();
-			FileCopyUtils.copy( new FileInputStream(file) , out );
+			filename = URLEncoder.encode(filename, "utf-8").replaceAll("\\+", "%20");
+			response.setHeader("content-disposition", "attachment; filename=" + filename);
+
+			ServletOutputStream out = response.getOutputStream();
+			FileCopyUtils.copy(new FileInputStream(file), out);
 			out.flush();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
 }
+
+
+
+
+
 
 
 
